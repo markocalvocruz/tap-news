@@ -20,17 +20,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRb-ld-ozE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.90196078431372551" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <action selector="next_page:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1C-p0-edp"/>
-                                    <outletCollection property="gestureRecognizers" destination="nkj-xB-6Pr" appends="YES" id="pyz-8p-Dwa"/>
-                                    <outletCollection property="gestureRecognizers" destination="l31-cE-DEw" appends="YES" id="3f7-B9-ojJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Techmeme Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWr-rM-5lJ">
                                 <rect key="frame" x="97" y="333.5" width="181" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.62352941179999999" green="0.61176470589999998" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NH3-M9-i7m">
@@ -83,9 +82,6 @@
                             <constraint firstItem="SRb-ld-ozE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xTa-FV-OEK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nkj-xB-6Pr" appends="YES" id="jgD-V9-kId"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="author_label" destination="Qxl-Hj-Hi1" id="d5z-kn-dsK"/>
@@ -97,8 +93,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="nkj-xB-6Pr"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="l31-cE-DEw"/>
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="31.934032983508249"/>
         </scene>

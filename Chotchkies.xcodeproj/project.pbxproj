@@ -17,6 +17,10 @@
 		ADA9D98D205A0E8300ADAA8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA9D98B205A0E8300ADAA8A /* LaunchScreen.storyboard */; };
 		ADA9D998205A0E8300ADAA8A /* ChotchkiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9D997205A0E8300ADAA8A /* ChotchkiesTests.swift */; };
 		ADA9D9A3205A0E8300ADAA8A /* ChotchkiesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9D9A2205A0E8300ADAA8A /* ChotchkiesUITests.swift */; };
+		ADED06F2215FF3CE000FA5B9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED06F1215FF3CE000FA5B9 /* PageViewController.swift */; };
+		ADED06F4215FF4B8000FA5B9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED06F3215FF4B8000FA5B9 /* Article.swift */; };
+		ADED06F6215FFEEA000FA5B9 /* Bookmarks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */; };
+		ADED06F8216005EC000FA5B9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED06F7216005EC000FA5B9 /* Bookmark.swift */; };
 		C69F511E75AA0B9F5AE7C88D /* Pods_Chotchkies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9241F8189CBCA3456EB59C39 /* Pods_Chotchkies.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,10 @@
 		ADA9D99E205A0E8300ADAA8A /* ChotchkiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChotchkiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA9D9A2205A0E8300ADAA8A /* ChotchkiesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChotchkiesUITests.swift; sourceTree = "<group>"; };
 		ADA9D9A4205A0E8300ADAA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADED06F1215FF3CE000FA5B9 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		ADED06F3215FF4B8000FA5B9 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Bookmarks.plist; sourceTree = "<group>"; };
+		ADED06F7216005EC000FA5B9 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		BFFB08150A8688A6DC89473D /* Pods_ChotchkiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChotchkiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCD4BD1C8C6009B0F9EF70D /* Pods-ChotchkiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChotchkiesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChotchkiesTests/Pods-ChotchkiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6C41975FDA5EAFFC9907DDD /* Pods-Chotchkies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chotchkies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chotchkies/Pods-Chotchkies.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,9 +135,13 @@
 			isa = PBXGroup;
 			children = (
 				ADA9D982205A0E8300ADAA8A /* AppDelegate.swift */,
-				ADA9D984205A0E8300ADAA8A /* ViewController.swift */,
 				AD433E90205AF6AB00F62F8D /* WebViewController.swift */,
+				ADA9D984205A0E8300ADAA8A /* ViewController.swift */,
+				ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */,
+				ADED06F3215FF4B8000FA5B9 /* Article.swift */,
+				ADED06F7216005EC000FA5B9 /* Bookmark.swift */,
 				ADA9D986205A0E8300ADAA8A /* Main.storyboard */,
+				ADED06F1215FF3CE000FA5B9 /* PageViewController.swift */,
 				ADA9D989205A0E8300ADAA8A /* Assets.xcassets */,
 				ADA9D98B205A0E8300ADAA8A /* LaunchScreen.storyboard */,
 				ADA9D98E205A0E8300ADAA8A /* Info.plist */,
@@ -286,6 +298,7 @@
 			files = (
 				ADA9D98D205A0E8300ADAA8A /* LaunchScreen.storyboard in Resources */,
 				ADA9D98A205A0E8300ADAA8A /* Assets.xcassets in Resources */,
+				ADED06F6215FFEEA000FA5B9 /* Bookmarks.plist in Resources */,
 				ADA9D988205A0E8300ADAA8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +481,9 @@
 				ADA9D985205A0E8300ADAA8A /* ViewController.swift in Sources */,
 				AD433E91205AF6AB00F62F8D /* WebViewController.swift in Sources */,
 				ADA9D983205A0E8300ADAA8A /* AppDelegate.swift in Sources */,
+				ADED06F2215FF3CE000FA5B9 /* PageViewController.swift in Sources */,
+				ADED06F4215FF4B8000FA5B9 /* Article.swift in Sources */,
+				ADED06F8216005EC000FA5B9 /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

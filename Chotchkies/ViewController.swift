@@ -10,58 +10,11 @@ import UIKit
 import FeedKit
 let feedURL = URL(string: "https://www.techmeme.com/feed.xml")!
 
-extension String {
-    func slice(from: String, to: String, options: NSString.CompareOptions = []) -> String? {
-        return  (range(of: from, options: options)?.upperBound).flatMap { substringFrom in
-            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
-                substring(with: substringFrom..<substringTo)
-            }
-        }
-    }
-    func substringToFirstChar(of char: Character) -> String
-    {
-        guard let pos = self.range(of: String(char)) else { return self }
-        // or  guard let pos = self.index(of: char) else { return self }
-        let subString = self[..<pos.lowerBound]
-        return String(subString)
-    }
 
-}
-
-struct Article {
-    var url: String
-    var description: String
-    var image: String?
-
-    var domain: String?
-    var author: String?
-    var date: Date?
-    
-    init(description: String, xml: String, pubDate: Date?) {
-        //print(xml)
-        self.url = xml.slice(from: "\"", to: "\"")!
-        self.description = description.substringToFirstChar(of: "(")
-        if let meta = description.slice(from: "(", to: ")") {
-            let array: [String] = meta.components(separatedBy: "/")
-            if array.count == 1 {
-                self.domain = array[0]
-            } else if array.count > 1 {
-                self.author = array[0]
-                self.domain = array[1]
-                self.date = pubDate
-               // print(array)
-            }
-        } else {
-            print("Error parsing: \(description)")
-        }
-     
-    }
-    
-    
-}
 
 class ViewController: UIViewController {
     
+    //MARK: IB Outlets
     @IBAction func viewArticle(_ sender: UIButton) {
         performSegue(withIdentifier: "viewArticle", sender: self)
 
@@ -72,16 +25,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var description_label: UILabel!
     @IBOutlet weak var next_page: UIButton!
     @IBAction func next_page(_ sender: UIButton) {
-        if let feed = feed {
-            if x < feed.items!.count - 1 {
-                x += 1
-            } else if x == feed.items!.count - 1 {
-                x = 0
-            }
-        }
-        updateUI()
+       // self.next_article()
     }
-    
+
     
     var x = 0
     var feed: RSSFeed?
@@ -89,11 +35,22 @@ class ViewController: UIViewController {
     var article: Article {
         return self.articles[x]
     }
+    var bookmarks: [Article]
     let parser = FeedParser(URL: feedURL)!
     let dateFormatter = DateFormatter()
-
+    
+    //MARK: VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9019607843, blue: 0.7137254902, alpha: 1)
+        self.description_label.textColor = #colorLiteral(red: 0.5853343606, green: 0.5755420923, blue: 0.4980115294, alpha: 1)
+        self.initiateSwipeGestures([.up, .right, .left, .down])
+
+        if let path = Bundle.main.path(forResource: "Bookmarks", ofType: "plist"),
+            let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+            
+        }
+        
         dateFormatter.dateFormat = "MMM dd"
         // Parse asynchronously, not to block the UI.
         parser.parseAsync { [weak self] (result) in
@@ -118,25 +75,75 @@ class ViewController: UIViewController {
             }
             
         }
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        upSwipe.direction = .up
+
         
 
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    private func initiateSwipeGestures(_ gestures: [SwipeGesture]) {
+        if gestures.contains(.up) {
+            let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            swipeUp.direction = .up
+            self.view.addGestureRecognizer(swipeUp)
+        }
+        if gestures.contains(.right) {
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            swipeRight.direction = .right
+            self.view.addGestureRecognizer(swipeRight)
+        }
+        if gestures.contains(.left) {
+            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            swipeLeft.direction = .left
+            self.view.addGestureRecognizer(swipeLeft)
+            
+        }
+        if gestures.contains(.down) {
+            let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            swipeDown.direction = .down
+            self.view.addGestureRecognizer(swipeDown)
+        }
+
+    }
+    
     @objc
     func handleSwipes(_ sender:UISwipeGestureRecognizer) {
-        
-        if (sender.direction == .up) {
-            print("Swipe Up")
-            performSegue(withIdentifier: "viewArticle", sender: self)
+        switch sender.direction {
+        case .up:
+            self.handleSwipeUp(sender)
+        case .right:
+            self.handleSwipeRight(sender)
+        case .left:
+            self.handleSwipeLeft(sender)
+        case .down:
+            self.handleSwipeDown(sender)
+        default: break
+        }
+    }
+    
+    @objc
+    private func handleSwipeUp(_ sender:UISwipeGestureRecognizer) {
+        print("Swipe Up")
+        performSegue(withIdentifier: "viewArticle", sender: self)
 
-        }
+    }
+    @objc
+    private func handleSwipeDown(_ sender:UISwipeGestureRecognizer) {
+        print("Swipe Down")
+        self.bookmarkArticle()
         
-        if (sender.direction == .right) {
-            print("Swipe Right")
-           
-        }
+    }
+    @objc
+    private func handleSwipeRight(_ sender:UISwipeGestureRecognizer) {
+        print("Swipe Right")
+     //   self.nextArticle()
+        
+    }
+    @objc
+    private func handleSwipeLeft(_ sender:UISwipeGestureRecognizer) {
+        print("Swipe Left")
+        self.previousArticle()
+        
     }
     private func getAuthor(str: String) -> String {
         let startTrim = str.lastIndex(of: "(")
@@ -149,6 +156,23 @@ class ViewController: UIViewController {
         }
     }
     
+    private func nextArticle() {
+        if let feed = feed {
+            if x < feed.items!.count - 1 {
+                x += 1
+            } else if x == feed.items!.count - 1 {
+                x = 0
+            }
+        }
+        updateUI()
+    }
+    
+    private func previousArticle() {
+        //Implement code
+    }
+    private func bookmarkArticle() {
+        //Implement code
+    }
     private func updateUI() {
         
         if feed != nil {
@@ -164,6 +188,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -179,3 +204,9 @@ class ViewController: UIViewController {
 
 }
 
+enum SwipeGesture {
+    case up
+    case down
+    case left
+    case right
+}
