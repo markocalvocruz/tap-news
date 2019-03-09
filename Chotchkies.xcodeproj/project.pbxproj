@@ -10,6 +10,8 @@
 		1658ECFF5DC4570260B087A6 /* Pods_ChotchkiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D350D96E36C7341D3920CFB /* Pods_ChotchkiesTests.framework */; };
 		A2BE29B165FF0720EBFA0CA2 /* Pods_ChotchkiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFB08150A8688A6DC89473D /* Pods_ChotchkiesUITests.framework */; };
 		AD433E91205AF6AB00F62F8D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD433E90205AF6AB00F62F8D /* WebViewController.swift */; };
+		AD4D45E021645383002179BC /* Marion.ttc in Resources */ = {isa = PBXBuildFile; fileRef = AD4D45DF21645382002179BC /* Marion.ttc */; };
+		AD4D45E121645383002179BC /* Marion.ttc in Resources */ = {isa = PBXBuildFile; fileRef = AD4D45DF21645382002179BC /* Marion.ttc */; };
 		AD4D45E221645496002179BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADA9D989205A0E8300ADAA8A /* Assets.xcassets */; };
 		AD4D45E321645497002179BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADA9D989205A0E8300ADAA8A /* Assets.xcassets */; };
 		AD702ABD21602CC400BE461B /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = AD702ABC21602CC400BE461B /* AppIcon.appiconset */; };
@@ -24,7 +26,6 @@
 		ADED06F4215FF4B8000FA5B9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED06F3215FF4B8000FA5B9 /* Article.swift */; };
 		ADED06F6215FFEEA000FA5B9 /* Bookmarks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */; };
 		ADED06F8216005EC000FA5B9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED06F7216005EC000FA5B9 /* Bookmark.swift */; };
-		ADF023862234443200EFE9A5 /* Marion.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADF023852234443200EFE9A5 /* Marion.ttf */; };
 		C69F511E75AA0B9F5AE7C88D /* Pods_Chotchkies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9241F8189CBCA3456EB59C39 /* Pods_Chotchkies.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		912878009ED1B1D5F0782F8A /* Pods-ChotchkiesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChotchkiesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChotchkiesUITests/Pods-ChotchkiesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9241F8189CBCA3456EB59C39 /* Pods_Chotchkies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chotchkies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD433E90205AF6AB00F62F8D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		AD4D45DF21645382002179BC /* Marion.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = Marion.ttc; path = ../../../Marion.ttc; sourceTree = "<group>"; };
 		AD702ABB2160224900BE461B /* Chotchkies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chotchkies.entitlements; sourceTree = "<group>"; };
 		AD702ABC21602CC400BE461B /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../iOS App Icon Template for Sketch [6.0]/AppIcon.appiconset"; sourceTree = "<group>"; };
 		ADA9D97F205A0E8300ADAA8A /* Chotchkies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chotchkies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +74,6 @@
 		ADED06F3215FF4B8000FA5B9 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Bookmarks.plist; sourceTree = "<group>"; };
 		ADED06F7216005EC000FA5B9 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
-		ADF023852234443200EFE9A5 /* Marion.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Marion.ttf; sourceTree = "<group>"; };
 		BFFB08150A8688A6DC89473D /* Pods_ChotchkiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChotchkiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCD4BD1C8C6009B0F9EF70D /* Pods-ChotchkiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChotchkiesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChotchkiesTests/Pods-ChotchkiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6C41975FDA5EAFFC9907DDD /* Pods-Chotchkies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chotchkies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chotchkies/Pods-Chotchkies.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		ADA9D981205A0E8300ADAA8A /* Chotchkies */ = {
 			isa = PBXGroup;
 			children = (
-				ADF023852234443200EFE9A5 /* Marion.ttf */,
 				AD702ABB2160224900BE461B /* Chotchkies.entitlements */,
 				ADA9D982205A0E8300ADAA8A /* AppDelegate.swift */,
 				AD433E90205AF6AB00F62F8D /* WebViewController.swift */,
@@ -150,6 +150,7 @@
 				ADED06F5215FFEEA000FA5B9 /* Bookmarks.plist */,
 				ADED06F3215FF4B8000FA5B9 /* Article.swift */,
 				ADED06F7216005EC000FA5B9 /* Bookmark.swift */,
+				AD4D45DF21645382002179BC /* Marion.ttc */,
 				ADA9D986205A0E8300ADAA8A /* Main.storyboard */,
 				ADED06F1215FF3CE000FA5B9 /* PageViewController.swift */,
 				ADA9D989205A0E8300ADAA8A /* Assets.xcassets */,
@@ -312,10 +313,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADA9D98D205A0E8300ADAA8A /* LaunchScreen.storyboard in Resources */,
+				AD4D45E021645383002179BC /* Marion.ttc in Resources */,
 				ADA9D98A205A0E8300ADAA8A /* Assets.xcassets in Resources */,
 				ADED06F6215FFEEA000FA5B9 /* Bookmarks.plist in Resources */,
 				AD702ABD21602CC400BE461B /* AppIcon.appiconset in Resources */,
-				ADF023862234443200EFE9A5 /* Marion.ttf in Resources */,
 				ADA9D988205A0E8300ADAA8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4D45E321645497002179BC /* Assets.xcassets in Resources */,
+				AD4D45E121645383002179BC /* Marion.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
