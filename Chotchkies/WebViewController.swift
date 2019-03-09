@@ -105,8 +105,8 @@ class WebViewController: UIViewController {
                     progressView.progress = 0.9401
                 }
             }
-            
-            /**delay(delay: 0.008) { [weak self] in
+            /**
+            delay(delay: 0.008) { [weak self] in
                 if let _self = self {
                     _self.updateProgress()
                 }
@@ -125,11 +125,12 @@ extension WebViewController: WKUIDelegate {
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        /**delay(delay: 1) { [weak self] in
+      /**  delay(delay: 1) { [weak self] in
             if let _self = self {
                 _self.hasFinishedLoading = true
             }
-        }**/        print("Article finished loading")
+        }**/
+        print("Article finished loading")
     }
     
     

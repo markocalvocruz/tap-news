@@ -10,32 +10,24 @@ import UIKit
 import FeedKit
 let feedURL = URL(string: "https://www.techmeme.com/feed.xml")!
 
-extension Data
-{
-    func toString() -> String
-    {
-        return String(data: self, encoding: .utf8)!
-    }
-}
+
 
 class ViewController: UIViewController {
     
     //MARK: IB Outlets
     @IBAction func viewArticle(_ sender: UIButton) {
-//        performSegue(withIdentifier: "viewArticle", sender: self)
+        performSegue(withIdentifier: "viewArticle", sender: self)
 
     }
-  //  @IBOutlet weak var date_label: UILabel!
-    @IBOutlet weak var index_label: UILabel!
+    @IBOutlet weak var date_label: UILabel!
     @IBOutlet weak var domain_label: UILabel!
-  //  @IBOutlet weak var author_label: UILabel!
+    @IBOutlet weak var author_label: UILabel!
     @IBOutlet weak var description_label: UILabel!
     @IBOutlet weak var next_page: UIButton!
     @IBAction func next_page(_ sender: UIButton) {
-        self.nextArticle()
+       // self.next_article()
     }
 
-    var bookmarksPath: String?
     
     var x = 0
     var feed: RSSFeed?
@@ -43,24 +35,23 @@ class ViewController: UIViewController {
     var article: Article {
         return self.articles[x]
     }
-    var bookmarks: [Bookmark] = []
+    var bookmarks: [Article]
     let parser = FeedParser(URL: feedURL)!
     let dateFormatter = DateFormatter()
     
     //MARK: VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateFormat = "MMM dd"
-        self.view.backgroundColor = #colorLiteral(red: 0.8549019608, green: 0.9176470588, blue: 0.9450980392, alpha: 1)
-        self.description_label.textColor = #colorLiteral(red: 0.1176470588, green: 0.1882352941, blue: 0.2470588235, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9019607843, blue: 0.7137254902, alpha: 1)
+        self.description_label.textColor = #colorLiteral(red: 0.5853343606, green: 0.5755420923, blue: 0.4980115294, alpha: 1)
         self.initiateSwipeGestures([.up, .right, .left, .down])
-        self.description_label.font = UIFont(name: "Marion", size: 25.0)
-        self.domain_label.font = UIFont(name: "Marion-Italic", size: 20.0)
-        self.index_label.font = UIFont(name: "Marion", size: 20.0)
 
-        bookmarks = retrieveBookmarksFromPlist()
+        if let path = Bundle.main.path(forResource: "Bookmarks", ofType: "plist"),
+            let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+            
+        }
         
-        
+        dateFormatter.dateFormat = "MMM dd"
         // Parse asynchronously, not to block the UI.
         parser.parseAsync { [weak self] (result) in
             if let strongSelf = self {
@@ -72,16 +63,7 @@ class ViewController: UIViewController {
                     let xml = item.description!
                     let author = self?.getAuthor(str: item.title!)
                     let description = item.title!
-                    let article = Article(description: description, xml: xml, pubDate: pubDate)/**
-                    let bookmark = Bookmark(article: article)
-                    let encoder = PropertyListEncoder()
-                    encoder.outputFormat = .xml
-                    do {
-                        let data = try encoder.encode(bookmark)
-                        print(data.toString())
-                    } catch {
-                        print(error)
-                    }**/
+                    let article = Article(description: description, xml: xml, pubDate: pubDate)
                     strongSelf.articles.append(article)
                     
                 }
@@ -89,8 +71,14 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     strongSelf.updateUI()
                 }
+
             }
+            
         }
+
+        
+
+        // Do any additional setup after loading the view, typically from a nib.
     }
     
     private func initiateSwipeGestures(_ gestures: [SwipeGesture]) {
@@ -116,24 +104,6 @@ class ViewController: UIViewController {
             self.view.addGestureRecognizer(swipeDown)
         }
 
-    }
-    
-    private func retrieveBookmarksFromPlist() -> [Bookmark] {
-        var arr: [Bookmark] = []
-        //Read the PLIST - pull bookmarks from plist
-        if let path = Bundle.main.path(forResource: "Bookmarks", ofType: "plist") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let decoder = PropertyListDecoder()
-                arr = try decoder.decode([Bookmark].self, from: data)
-            }
-            catch {
-                print(error)
-            }
-        } else {
-            print ("could not access Bookmarks.plist")
-        }
-        return arr
     }
     
     @objc
@@ -198,47 +168,23 @@ class ViewController: UIViewController {
     }
     
     private func previousArticle() {
-        //TODO: Implement code
+        //Implement code
     }
-    private func bookmarkArticle(_ param: Article? = nil) -> Bookmark? {
-        let x = param ?? article
-        let og = bookmarks.count
-        let bookmark = Bookmark(article: x)
-        //TODO: Implement code
-        if let path = Bundle.main.path(forResource: "Bookmarks", ofType: "plist") {
-            let encoder = PropertyListEncoder()
-            encoder.outputFormat = .xml
-            do {
-                let data = try encoder.encode(bookmark)
-                try data.write(to: URL(fileURLWithPath: path))
-                bookmarks.append(bookmark)
-            } catch {
-                print(error)
-            }
-        }
-        if bookmarks.count > og {
-            print("Successfully added \(bookmark.article.description)")
-            return bookmark
-        } else {
-            print("error saving bookmark")
-            print(bookmarks.count)
-        }
-        print(bookmarks.map { $0.article.description})
-        return nil
+    private func bookmarkArticle() {
+        //Implement code
     }
     private func updateUI() {
         
         if feed != nil {
-            self.index_label.text = "\(x + 1) of \(articles.count)"
             self.description_label.text = self.articles[x].description
-          //  self.author_label.text = self.articles[x].author
-            self.domain_label.text = "Source: \(self.articles[x].author), \(self.articles[x].domain!)"
+            self.author_label.text = self.articles[x].author
+            self.domain_label.text = self.articles[x].domain
             if let date = self.articles[x].date {
               //  print("DATE: \(date) TO \(dateFormatter.string(for: date))")
-                //self.date_label.text = dateFormatter.string(for: date)!
+                self.date_label.text = dateFormatter.string(for: date)!
             } else {
                // print("DATE NIL: \(self.articles[x].date)")
-              //  self.date_label.text = "empty"
+                self.date_label.text = "empty"
             }
         }
     }

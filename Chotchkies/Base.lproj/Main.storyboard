@@ -20,44 +20,48 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRb-ld-ozE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.90196078431372551" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <action selector="next_page:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1C-p0-edp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Techmeme Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWr-rM-5lJ">
-                                <rect key="frame" x="100.5" y="333.5" width="174.5" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.1176470588" green="0.18823529410000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="97" y="333.5" width="181" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.62352941179999999" green="0.61176470589999998" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7x-qG-e8k" userLabel="share_btn">
-                                <rect key="frame" x="150.5" y="561" width="74" height="74"/>
-                                <state key="normal" image="share_icon"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NH3-M9-i7m">
+                                <rect key="frame" x="258" y="56.5" width="101" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxl-Hj-Hi1">
+                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQH-LD-29x">
+                                        <rect key="frame" x="64.5" y="0.0" width="36.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7x-qG-e8k">
+                                <rect key="frame" x="143" y="567" width="82" height="30"/>
+                                <state key="normal" title="View Article"/>
                                 <connections>
                                     <action selector="viewArticle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekE-ZX-qAs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQH-LD-29x" userLabel="Source Label">
-                                <rect key="frame" x="169.5" y="368.5" width="36.5" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yad-7U-Yat">
+                                <rect key="frame" x="52" y="56.5" width="36" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.1176470588" green="0.18823529410000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jp-uw-osc">
-                                <rect key="frame" x="291" y="614" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.1176470588" green="0.18823529410000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJj-le-oF9" userLabel="view_article_btn">
-                                <rect key="frame" x="125" y="84" width="125" height="35"/>
-                                <state key="normal" image="view_article_icon"/>
-                                <connections>
-                                    <action selector="viewArticle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tlu-it-rnx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -65,26 +69,25 @@
                             <constraint firstItem="SRb-ld-ozE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2VZ-iI-r3M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kWr-rM-5lJ" secondAttribute="trailing" constant="32" id="5m3-74-007"/>
                             <constraint firstItem="kWr-rM-5lJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Bgv-FU-l8J"/>
-                            <constraint firstItem="VQH-LD-29x" firstAttribute="centerX" secondItem="SRb-ld-ozE" secondAttribute="centerX" id="Ek9-CP-Deo"/>
-                            <constraint firstItem="VQH-LD-29x" firstAttribute="top" secondItem="kWr-rM-5lJ" secondAttribute="bottom" constant="15" id="Fad-l2-629"/>
-                            <constraint firstItem="t7x-qG-e8k" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gh2-KI-6EO"/>
+                            <constraint firstItem="yad-7U-Yat" firstAttribute="centerY" secondItem="NH3-M9-i7m" secondAttribute="centerY" id="Gpa-wp-Jwa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SRb-ld-ozE" secondAttribute="trailing" id="L4R-bB-PzT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NH3-M9-i7m" secondAttribute="trailing" constant="16" id="L4q-0i-dNF"/>
                             <constraint firstItem="kWr-rM-5lJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="R0Z-Gj-2fL"/>
-                            <constraint firstItem="vJj-le-oF9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="R8H-21-j8d"/>
-                            <constraint firstItem="3jp-uw-osc" firstAttribute="bottom" secondItem="t7x-qG-e8k" secondAttribute="bottom" id="Yyh-PX-CVU"/>
                             <constraint firstItem="kWr-rM-5lJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cak-Yp-4SG"/>
-                            <constraint firstItem="vJj-le-oF9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="etS-uh-PeD"/>
+                            <constraint firstAttribute="leading" secondItem="yad-7U-Yat" secondAttribute="leading" constant="-52" id="hB7-dT-o6a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SRb-ld-ozE" secondAttribute="bottom" id="j5w-Rk-9ec"/>
-                            <constraint firstItem="t7x-qG-e8k" firstAttribute="bottom" secondItem="SRb-ld-ozE" secondAttribute="bottom" constant="-32" id="nhe-zq-Hd8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3jp-uw-osc" secondAttribute="trailing" constant="42" id="uCu-Bj-maW"/>
+                            <constraint firstItem="t7x-qG-e8k" firstAttribute="bottom" secondItem="SRb-ld-ozE" secondAttribute="bottom" constant="-70" id="nhe-zq-Hd8"/>
+                            <constraint firstAttribute="top" secondItem="yad-7U-Yat" secondAttribute="top" constant="-56.5" id="pce-gt-cgT"/>
+                            <constraint firstItem="SRb-ld-ozE" firstAttribute="leading" secondItem="t7x-qG-e8k" secondAttribute="trailing" constant="-225" id="wse-Pf-pN0"/>
                             <constraint firstItem="SRb-ld-ozE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xTa-FV-OEK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="author_label" destination="Qxl-Hj-Hi1" id="d5z-kn-dsK"/>
+                        <outlet property="date_label" destination="yad-7U-Yat" id="eZW-u9-OtJ"/>
                         <outlet property="description_label" destination="kWr-rM-5lJ" id="esb-qY-rxz"/>
                         <outlet property="domain_label" destination="VQH-LD-29x" id="D2I-GU-qa3"/>
-                        <outlet property="index_label" destination="3jp-uw-osc" id="eIh-6M-1eV"/>
                         <outlet property="next_page" destination="SRb-ld-ozE" id="giD-Y2-ede"/>
                         <segue destination="Ofb-KE-L2X" kind="show" identifier="viewArticle" id="CEO-Nt-diT"/>
                     </connections>
@@ -141,8 +144,4 @@
             <point key="canvasLocation" x="903" y="37"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="share_icon" width="74" height="74"/>
-        <image name="view_article_icon" width="125" height="35"/>
-    </resources>
 </document>

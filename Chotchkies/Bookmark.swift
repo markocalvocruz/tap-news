@@ -10,11 +10,7 @@ import Foundation
 
 struct Bookmark: Codable {
     var article: Article
-    var saved: Date
+    var dateSaved: Date
     var hidden: Bool = false
     
-    init(article: Article) {
-        self.article = article
-        self.saved = Date()
-    }
 }
