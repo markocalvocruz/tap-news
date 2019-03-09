@@ -1,0 +1,6 @@
+framework module Pods_ChotchkiesUITests {
+  umbrella header "Pods-ChotchkiesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

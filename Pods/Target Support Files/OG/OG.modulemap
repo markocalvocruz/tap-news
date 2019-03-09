@@ -1,0 +1,6 @@
+framework module OG {
+  umbrella header "OG-umbrella.h"
+
+  export *
+  module * { export * }
+}

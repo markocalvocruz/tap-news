@@ -49,7 +49,7 @@ class WebViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.navigationController?.navigationBar.isHidden = false
         view.addSubview(webView)
-        view.sendSubview(toBack: webView)
+        view.sendSubviewToBack(webView)
         self.delegate = self
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)

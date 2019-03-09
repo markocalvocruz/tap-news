@@ -1,0 +1,36 @@
+PODS:
+  - FeedKit (6.2.0)
+  - OG (1.4)
+  - Spring (1.0.6)
+
+DEPENDENCIES:
+  - FeedKit (~> 6.0)
+  - OG (from `https://github.com/zadr/OG.git`)
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FeedKit
+
+EXTERNAL SOURCES:
+  OG:
+    :git: https://github.com/zadr/OG.git
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  OG:
+    :commit: 59953ccb08637d5e721f5e336e0c2bb3aed5d060
+    :git: https://github.com/zadr/OG.git
+  Spring:
+    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  FeedKit: 48e371d0884b3bc7d87253f5ae3313c91d2a7e72
+  OG: 00de68e56f604fda17f0c3e380aa7b703dc45597
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+
+PODFILE CHECKSUM: f60c1eaa128a332b8e89cd2c3cbf1bcde47e0692
+
+COCOAPODS: 1.6.0.beta.2
