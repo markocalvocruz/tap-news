@@ -9,7 +9,7 @@
 
 import UIKit
 import WebKit
-
+import Spring
 
 class WebViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
@@ -45,12 +45,13 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(url_string)
+        self.delegate = self
+
+        print("STARTED LOADING VC")
         self.edgesForExtendedLayout = []
         self.navigationController?.navigationBar.isHidden = false
         view.addSubview(webView)
         view.sendSubviewToBack(webView)
-        self.delegate = self
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
@@ -66,12 +67,6 @@ class WebViewController: UIViewController {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "estimatedProgress" {
-            self.updateProgress()
-        }
-        
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.isStatusBarHidden = true
@@ -82,9 +77,13 @@ class WebViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = false
     }
     
-    
-    
-    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            self.updateProgress()
+        }
+        
+    }
+
     func updateProgress() {
         if progressView.progress >= 1 {
             progressView.isHidden = true
@@ -102,34 +101,35 @@ class WebViewController: UIViewController {
                 } else if progressView.progress <= 0.94 {
                     progressView.progress += 0.0001
                 } else {
-                    progressView.progress = 0.9401
+                    progressView.progress = 1.0
                 }
             }
             
-            /**delay(delay: 0.008) { [weak self] in
+            delay(delay: 0.008) { [weak self] in
                 if let _self = self {
                     _self.updateProgress()
                 }
-            }**/
+            }
         }
     }
+ 
 }
 
 extension WebViewController: WKUIDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
+        print("Loading")
         hasFinishedLoading = false
         updateProgress()
-        print("Article started loading")
 
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        /**delay(delay: 1) { [weak self] in
+    func webViewDidFinishLoad(_ webView: UIWebView) {        
+        delay(delay: 1) { [weak self] in
             if let _self = self {
                 _self.hasFinishedLoading = true
             }
-        }**/        print("Article finished loading")
+        }
     }
     
     

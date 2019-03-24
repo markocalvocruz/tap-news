@@ -20,11 +20,17 @@ extension Data
 
 class ViewController: UIViewController {
     
-    //MARK: IB Outlets
-    @IBAction func viewArticle(_ sender: UIButton) {
-//        performSegue(withIdentifier: "viewArticle", sender: self)
+    @IBAction func btnClicked(_ sender: Any) {
+        print("hello")
+       // performSegue(withIdentifier: "viewArticle", sender: self)
 
     }
+    //MARK: IB Outlets
+    @IBAction func view_article(_ sender: Any) {
+        print("view article")
+        performSegue(withIdentifier: "viewArticle", sender: self)
+    }
+    
   //  @IBOutlet weak var date_label: UILabel!
     @IBOutlet weak var index_label: UILabel!
     @IBOutlet weak var domain_label: UILabel!
@@ -35,6 +41,7 @@ class ViewController: UIViewController {
         self.nextArticle()
     }
 
+    @IBOutlet weak var title_label: UILabel!
     var bookmarksPath: String?
     
     var x = 0
@@ -57,7 +64,8 @@ class ViewController: UIViewController {
         self.description_label.font = UIFont(name: "Marion", size: 25.0)
         self.domain_label.font = UIFont(name: "Marion-Italic", size: 20.0)
         self.index_label.font = UIFont(name: "Marion", size: 20.0)
-
+        self.title_label.font = UIFont(name: "Marion", size: 50.0)
+        
         bookmarks = retrieveBookmarksFromPlist()
         
         
@@ -138,7 +146,7 @@ class ViewController: UIViewController {
     
     @objc
     func handleSwipes(_ sender:UISwipeGestureRecognizer) {
-        switch sender.direction {
+        /**switch sender.direction {
         case .up:
             self.handleSwipeUp(sender)
         case .right:
@@ -148,7 +156,7 @@ class ViewController: UIViewController {
         case .down:
             self.handleSwipeDown(sender)
         default: break
-        }
+        }**/
     }
     
     @objc
@@ -166,7 +174,7 @@ class ViewController: UIViewController {
     @objc
     private func handleSwipeRight(_ sender:UISwipeGestureRecognizer) {
         print("Swipe Right")
-     //   self.nextArticle()
+        self.nextArticle()
         
     }
     @objc
@@ -186,12 +194,14 @@ class ViewController: UIViewController {
         }
     }
     
+  
     private func nextArticle() {
         if let feed = feed {
-            if x < feed.items!.count - 1 {
-                x += 1
-            } else if x == feed.items!.count - 1 {
+            switch x {
+            case feed.items!.count - 1:
                 x = 0
+            default:
+                x += 1
             }
         }
         updateUI()
@@ -199,6 +209,16 @@ class ViewController: UIViewController {
     
     private func previousArticle() {
         //TODO: Implement code
+        if let feed = feed {
+            switch x {
+            case 0:
+                x = feed.items!.count - 1
+            default:
+                x -= 1
+            }
+            updateUI()
+
+        }
     }
     private func bookmarkArticle(_ param: Article? = nil) -> Bookmark? {
         let x = param ?? article
@@ -230,9 +250,14 @@ class ViewController: UIViewController {
         
         if feed != nil {
             self.index_label.text = "\(x + 1) of \(articles.count)"
-            self.description_label.text = self.articles[x].description
+            self.description_label.text = self.articles[x].description.htmlToString
           //  self.author_label.text = self.articles[x].author
-            self.domain_label.text = "Source: \(self.articles[x].author), \(self.articles[x].domain!)"
+            if self.articles[x].author.isEmpty {
+                self.domain_label.text = "Source: \(self.articles[x].domain!)"
+
+            } else {
+                self.domain_label.text = "Source: \(self.articles[x].author), \(self.articles[x].domain!)"
+            }
             if let date = self.articles[x].date {
               //  print("DATE: \(date) TO \(dateFormatter.string(for: date))")
                 //self.date_label.text = dateFormatter.string(for: date)!
@@ -252,6 +277,7 @@ class ViewController: UIViewController {
             let vc = segue.destination as! WebViewController
             vc.url_string = self.article.url
 
+            print(vc.url_string)
         }
     }
 
@@ -263,4 +289,19 @@ enum SwipeGesture {
     case down
     case left
     case right
+}
+
+
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
 }
