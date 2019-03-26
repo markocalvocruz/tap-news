@@ -64,21 +64,20 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkK-XM-fEv" userLabel="VO_btn" customClass="DesignableButton" customModule="Spring">
-                                <rect key="frame" x="54" y="470.33333333333326" width="306" height="91"/>
+                                <rect key="frame" x="54" y="482.66666666666674" width="306" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Original" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-rS-g2f">
-                                        <rect key="frame" x="82" y="30.333333333333371" width="142" height="30.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="62.666666666666671" y="17.999999999999996" width="180.66666666666663" height="33.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                        <color key="textColor" red="0.99212771654129028" green="0.99212890863418579" blue="0.99635142087936401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.015686274509803921" green="0.29411764705882354" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="x3I-rS-g2f" firstAttribute="centerX" secondItem="EkK-XM-fEv" secondAttribute="centerX" id="1pw-s0-MUv"/>
                                     <constraint firstItem="x3I-rS-g2f" firstAttribute="centerY" secondItem="EkK-XM-fEv" secondAttribute="centerY" id="3aT-ZR-iqz"/>
-                                    <constraint firstAttribute="height" constant="91" id="5MB-Gh-14R"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="Gzc-8n-hCQ"/>
+                                    <constraint firstAttribute="height" constant="70" id="5MB-Gh-14R"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -88,7 +87,7 @@
                                         <color key="value" red="0.1333333333" green="0.19215686269999999" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
+                                        <integer key="value" value="32"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -146,14 +145,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuU-Ad-vOk" customClass="DesignableButton">
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuU-Ad-vOk" customClass="DesignableButton">
                                 <rect key="frame" x="332" y="780" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.70807963610000002" green="0.36537182330000001" blue="0.42023196819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.29411764709999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T8h-tB-Opf"/>
                                     <constraint firstAttribute="width" constant="50" id="afr-8o-kYu"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="close_icon"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
@@ -183,10 +183,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqI-B5-OFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="37"/>
+            <point key="canvasLocation" x="902.89855072463774" y="36.830357142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="close_icon" width="24" height="24"/>
         <image name="star-empty" width="32" height="32"/>
     </resources>
 </document>
